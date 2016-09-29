@@ -42,4 +42,4 @@ $ cordova build ios
 * Before you run the app, on your phone, make sure that in `Settings`-> `General` -> `Device Management` that you have enabled the iPhone Developer(the account that you open Xcode with) to be trusted
 
 ## About
-WearON is an open source initiative created by [Umbrellium](http://umbrellium.co.uk/) built for the community and us to quickly prototype connected wearables and iot devices. Join us in improving the project by contributing through github or simply drop us a message if there is any question or issue with using the app!
+WearON is an open source initiative created by [Umbrellium](http://umbrellium.co.uk/) built for the community and for us to quickly prototype connected wearables and iot devices. Join us in improving the project by contributing through github or simply drop us a message if there is any question or issue with using the platform!
