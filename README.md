@@ -23,6 +23,7 @@ If you are using Blend Micro board, please comment out:
 ```bash
 $ cordova build ios
 ```
+* Download the latest Xcode IDE from your Apple App Store
 * Open Xcode
 * go to your WearON cloned folder `WearON` -> `platforms` -> `ios` -> load `WearON.xcodeproj` onto Xcode
 * To deploy to the device:
