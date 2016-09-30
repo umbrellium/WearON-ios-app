@@ -16,7 +16,7 @@ If you are using Blend Micro board, please comment out:
 
 ## Deploying the app on an iOS phone locally using Xcode
 * Clone the project from github. 
-* Go to https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html to download the various dependencies in ogrder to set up your SDK environment to deploy Cordova apps for iOS devices.
+* Go to https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html to download the various dependencies in order to set up your SDK environment to deploy Cordova apps for iOS devices.
 * Alternatively, you can also check out our [Wiki](https://github.com/umbrellium/WearON-ios-app/wiki) for instructions on installing the various dependencies using our method
 * Open a new terminal window
 * Redirect to your local WearON folder
