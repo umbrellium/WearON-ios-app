@@ -1,4 +1,5 @@
-cordova.define("cordova.plugins.diagnostic.Diagnostic", function(require, exports, module) { /**
+cordova.define("cordova.plugins.diagnostic.Diagnostic", function(require, exports, module) {
+/**
  *  Plugin diagnostic
  *
  *  Copyright (c) 2012 AVANTIC ESTUDIO DE INGENIEROS

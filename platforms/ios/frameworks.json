@@ -1,7 +1,10 @@
 {
-    "CoreLocation.framework": 2,
     "CoreBluetooth.framework": 2,
-    "SystemConfiguration.framework": 1,
-    "CoreTelephony.framework": 1,
-    "AudioToolbox.framework": 1
+    "AddressBook.framework": 2,
+    "AddressBookUI.framework": 2,
+    "CoreMotion.framework": 2,
+    "CoreLocation.framework": 2,
+    "AudioToolbox.framework": 2,
+    "SystemConfiguration.framework": 2,
+    "CoreTelephony.framework": 2
 }
