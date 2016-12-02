@@ -171,7 +171,7 @@ function accessDevice(deviceID) {
       $('#device_detail').append("Device Name: " + data[0].attributes.title + "<br>");
       for (var i = 0; i < all_channels.length; i++) {
         var htmlStringFilter =
-          '<button class=deviceDataset style="font-size:20px; margin:2px; outline:none; border-style: none; "onclick="accessDataset(\'' +
+          '<button class=deviceDataset style="font-size:20px; margin:2px; background-color: lightgrey; outline:none; border-style: none; "onclick="accessDataset(\'' +
           deviceID + "," + all_channels[i].id + "," + all_channels[i].value + '\')">' + all_channels[i].id + ": " + all_channels[i].value +
           '</button><br>';
         $('#device_detail').append(htmlStringFilter);
