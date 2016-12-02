@@ -33,11 +33,18 @@
     <script src="js/digital_pin_D9.js"></script>
     <script src="js/digital_pin_D10.js"></script>
     <script src="js/data_feed_1.js"></script>
+    <script src="js/data_feed_2.js"></script>
+    <script src="js/data_feed_3.js"></script>
     <script src="js/get_connect_key_1.js"></script>
+    <script src="js/get_connect_key_2.js"></script>
+    <script src="js/get_connect_key_3.js"></script>
     <script src="js/connectivity_ctrl_panel_save.js"></script>
     <script src="js/get_thingful_thing.js"></script>
     <script src="js/global_connectivity_ctrl_panel_save.js"></script>
     <script src="js/get_global_connect_key.js"></script>
+    <script src="js/thingful_explorer.js"></script>
+    <script src="js/thingful_explorer_filter_category.js"></script>
+    <script src="js/thingful_explorer_set_logic.js"></script>
 
  </head>
 
@@ -71,7 +78,7 @@
     GPS: <span id="gps_setting"></span>
     </span>
     <br><br>
-    <span id="instruction_list"><b>Make sure you have created the following on WearON website: </b> <br>a. 1 or more data repository<br>b. A configuration key <br><br><b>On your device, you can utilise:</b><br> 2 Analog sensors (default: A4 and A5) <br> 2 Digital Pins (default: Pin 9 and 10)</span>
+    <span id="instruction_list"><b>Make sure you have created the following on WearON website: </b> <br>a. 1 or more data repository<br>b. A configuration key <br><br><b>On your device, you can utilise:</b><br> 6 Analog sensors (Pin A0, A1, A2, A3, A4 and A5) <br> 2 Digital Pins (Pin D9 and D10)</span>
     <span id="footnote"><br>*Update pin no. in the Arduino library given if you choose to change any pin</span>
     <p>
     <center><button id="begin" onclick="startApp()"> Begin </button></center>
@@ -134,6 +141,35 @@
      <!--App's Content, this is the UI for wearable designer to control the elements of their project, once lock screen, it
      goes into End user's UI content --> 
     <div id="AppContent">
+
+    <div id="A0Bar">
+    <span id="valueA0"> </span>
+    <span id="checking"> </span>
+    <span id="connectA0error">*if unexpected, check connection</span>
+    <div id="connectA0status">Number of readings sent to Thingspeak: - </div>
+    </div>
+
+    <div id="A1Bar">
+    <span id="valueA1"> </span>
+    <span id="checking"> </span>
+    <span id="connectA1error">*if unexpected, check connection</span>
+    <div id="connectA1status">Number of readings sent to Thingspeak: - </div>
+    </div>
+
+    <div id="A2Bar">
+    <span id="valueA2"> </span>
+    <span id="checking"> </span>
+    <span id="connectA2error">*if unexpected, check connection</span>
+    <div id="connectA2status">Number of readings sent to Thingspeak: - </div>
+    </div>
+
+    <div id="A3Bar">
+    <span id="valueA3"> </span>
+    <span id="checking"> </span>
+    <span id="connectA3error">*if unexpected, check connection</span>
+    <div id="connectA3status">Number of readings sent to Thingspeak: - </div>
+    </div>
+
     <div id="A4Bar">
     <span id="valueA4"> </span>
     <span id="checking"> </span>
@@ -157,9 +193,24 @@
     <div id="DataFeed1_content_status"></div>
     </div>
 
+    <div id="DataFeed2">
+    <span id="DataFeed2_content"> </span>
+    <div id="DataFeed2_content_status"></div>
+    </div>
+
+    <div id="DataFeed3">
+    <span id="DataFeed3_content"> </span>
+    <div id="DataFeed3_content_status"></div>
+    </div>
+
     <div id="ThingfulFeed">
     <span id="ThingfulFeed_content"> </span>
     <div id="ThingfulFeed_content_status"></div>
+    </div>
+
+    <div id="ThingfulExplorerFeed">
+    <span id="ThingfulExplorerFeed_content"> </span>
+    <div id="ThingfulExplorerFeed_content_status"></div>
     </div>
 
     </div>
@@ -184,6 +235,30 @@
     <hr/>
 
     <div id="app_control_content">
+
+    <div id="A0ControlPanel">
+        <div id="A0title"><b> A0 </b></div>
+        <button type="button" class ="enableA0" onclick="app.toggelAnalogA0()"> Enable Pin</button> 
+        <button type="button" class ="connectA0" onclick="toggelConnectA0()">Connect to Thingspeak</button> 
+    </div>
+
+    <div id="A1ControlPanel">
+        <div id="A1title"><b> A1 </b></div>
+        <button type="button" class ="enableA1" onclick="app.toggelAnalogA1()"> Enable Pin</button> 
+        <button type="button" class ="connectA1" onclick="toggelConnectA1()">Connect to Thingspeak</button> 
+    </div>
+
+    <div id="A2ControlPanel">
+        <div id="A2title"><b> A2 </b></div>
+        <button type="button" class ="enableA2" onclick="app.toggelAnalogA2()"> Enable Pin</button> 
+        <button type="button" class ="connectA2" onclick="toggelConnectA2()">Connect to Thingspeak</button> 
+    </div>
+
+    <div id="A3ControlPanel">
+        <div id="A3title"><b> A3 </b></div>
+        <button type="button" class ="enableA3" onclick="app.toggelAnalogA3()"> Enable Pin</button> 
+        <button type="button" class ="connectA3" onclick="toggelConnectA3()">Connect to Thingspeak</button> 
+    </div>
 
     <div id="A4ControlPanel">
         <div id="A4title"><b> A4 </b></div>
@@ -275,9 +350,21 @@
         <div class="sub_instruction"> * User can connect up to 1 channel field feed * </div>
 
         <div id="DateFeed1Panel">
-            <div id="DataFeed1title"><b> Data Feed </b></div>
+            <div id="DataFeed1title"><b> Data Feed 1</b></div>
             <button type="button" id="get_data_set_1" onclick="toggelgetDataFeed1()"> Retrieve</button> 
-            <button type="button" id="connect_data_set_1"onclick="toggelConnect_data_feed_1()" >Set Logic</button>
+            <button type="button" id="connect_data_set_1" onclick="toggelConnect_data_feed_1()" >Set Logic</button>
+        </div>
+
+        <div id="DateFeed2Panel">
+            <div id="DataFeed2title"><b> Data Feed 2</b></div>
+            <button type="button" id="get_data_set_2" onclick="toggelgetDataFeed2()"> Retrieve</button> 
+            <button type="button" id="connect_data_set_2"onclick="toggelConnect_data_feed_2()" >Set Logic</button>
+        </div>
+
+        <div id="DateFeed3Panel">
+            <div id="DataFeed3title"><b> Data Feed 3</b></div>
+            <button type="button" id="get_data_set_3" onclick="toggelgetDataFeed3()"> Retrieve</button> 
+            <button type="button" id="connect_data_set_3"onclick="toggelConnect_data_feed_3()" >Set Logic</button>
         </div>
 
         <div id="SaveControlPanel_data_feed_1">
@@ -310,9 +397,51 @@
         </div>
     </div></center>
 
+    <center><div id="get_data_set_2_panel">
+        <div id="get_data_set_2_title"><b>Input Connectivity Key</b></div>
+        <br>
+        <input type="text" id="key7" class="key" maxlength="3"> </input>
+        - <input type="text" id="key8" class="key" maxlength="3"> </input><br>
+        <span id="note">*case-sensitive*</span><br>
+        <button onclick="getKeyData_connectivity_2()" id="getData_connectivity_key_2">Get Data </button>
+        <br>
+        <button onclick="lastSavedConnectKey_2()" class= "useStoredConnectKey_2" ></button>
+        <div id="userConnectKeyContent_2">
+        <div id="ReadApi_2"></div>
+        <div id="channelID_2"></div>
+        <div id="channel_field_1_2"></div>
+        <div id="channel_field_2_2"></div>
+        </div>
+        <div id="confirmation_connect_2">
+        <button type="button" value="Confirm_connect_2" class = "Confirm_connect_2" onclick="Confirm_connect_2()"> Retrieve Data Set </button> 
+        <button type="button" class="restart_connect_2" onclick="restart_connect_2()"> Restart </button>
+        </div>
+    </div></center>
+
+    <center><div id="get_data_set_3_panel">
+        <div id="get_data_set_3_title"><b>Input Connectivity Key</b></div>
+        <br>
+        <input type="text" id="key9" class="key" maxlength="3"> </input>
+        - <input type="text" id="key10" class="key" maxlength="3"> </input><br>
+        <span id="note">*case-sensitive*</span><br>
+        <button onclick="getKeyData_connectivity_3()" id="getData_connectivity_key_3">Get Data </button>
+        <br>
+        <button onclick="lastSavedConnectKey_3()" class= "useStoredConnectKey_3" ></button>
+        <div id="userConnectKeyContent_3">
+        <div id="ReadApi_3"></div>
+        <div id="channelID_3"></div>
+        <div id="channel_field_1_3"></div>
+        <div id="channel_field_2_3"></div>
+        </div>
+        <div id="confirmation_connect_3">
+        <button type="button" value="Confirm_connect_3" class = "Confirm_connect_3" onclick="Confirm_connect_3()"> Retrieve Data Set </button> 
+        <button type="button" class="restart_connect_3" onclick="restart_connect_3()"> Restart </button>
+        </div>
+    </div></center>
+
     <!-- logic connection panel for data feed 1 -->
     <center><div id="connect_data_feed_1_panel">
-    <div id="connect_data_feed_1_title"><b>Construct logic for Data Feed</b></div>
+    <div id="connect_data_feed_1_title"><b>Construct logic for Data Feed 1</b></div>
     <div id="instruction_logic_data_feed_1">Press buttons to switch inputs and key in number</div>
 
     <div id="logic_statement_data_feed_1">
@@ -328,6 +457,44 @@
     <div id="check_overall_logic_status_data_feed_1"><b>-Logic: Unsuccessful-</b></div>
     <div id="close_panel_data_feed_1">(Click 'Close panel' when completed)</div>
     </div></center>
+
+    <!-- logic connection panel for data feed 2 -->
+    <center><div id="connect_data_feed_2_panel">
+    <div id="connect_data_feed_2_title"><b>Construct logic for Data Feed 2</b></div>
+    <div id="instruction_logic_data_feed_2">Press buttons to switch inputs and key in number</div>
+
+    <div id="logic_statement_data_feed_2">
+    <span><b> if Val</b></span>  
+    <button id="greater_than_data_feed_2" onclick="checkLogic_data_feed_2_greater_than()"> < </button>
+    <input type="number" id="numbering_data_feed_2"maxlength="5" size="5" placeholder= "+000" max="1023" onchange="checkLogic_data_feed_2_number()"></input>
+    <span><b>, turn </b></span> 
+    <button id="select_output_data_feed_2" onclick="checkLogic_data_feed_2_output()">D9</button>
+    <button id="on_off_data_feed_2" onclick="checkLogic_data_feed_2_on_off()">OFF</button>
+    </div>
+    <div id="check_logic_status_data_feed_2_number"></div>
+    <div id="check_logic_status_data_feed_2_output"></div>
+    <div id="check_overall_logic_status_data_feed_2"><b>-Logic: Unsuccessful-</b></div>
+    <div id="close_panel_data_feed_2">(Click 'Close panel' when completed)</div>
+    </div></center>
+
+    <!-- logic connection panel for data feed 3 -->
+    <center><div id="connect_data_feed_3_panel">
+    <div id="connect_data_feed_3_title"><b>Construct logic for Data Feed 3</b></div>
+    <div id="instruction_logic_data_feed_3">Press buttons to switch inputs and key in number</div>
+
+    <div id="logic_statement_data_feed_3">
+    <span><b> if Val</b></span>  
+    <button id="greater_than_data_feed_3" onclick="checkLogic_data_feed_3_greater_than()"> < </button>
+    <input type="number" id="numbering_data_feed_3"maxlength="5" size="5" placeholder= "+000" max="1023" onchange="checkLogic_data_feed_3_number()"></input>
+    <span><b>, turn </b></span> 
+    <button id="select_output_data_feed_3" onclick="checkLogic_data_feed_3_output()">D9</button>
+    <button id="on_off_data_feed_3" onclick="checkLogic_data_feed_3_on_off()">OFF</button>
+    </div>
+    <div id="check_logic_status_data_feed_3_number"></div>
+    <div id="check_logic_status_data_feed_3_output"></div>
+    <div id="check_overall_logic_status_data_feed_3"><b>-Logic: Unsuccessful-</b></div>
+    <div id="close_panel_data_feed_3">(Click 'Close panel' when completed)</div>
+    </div></center>
 <!--END App's Cross connectivity Control Panel -->
 
 <!--App's Global connectivity Control Panel -->
@@ -337,8 +504,15 @@
         <button type="button" id="show_global_connectivity_panel" onclick="openAppGlobalConnectivity()">+</button> <!-- in global.js -->
         <hr/>
 
+        <!-- logic connection panel for thingful data retrieve panel-->
         <div id="app_global_connectivity_control_content">
         <div class="sub_instruction"> * User can connect up to 1 Thing from Thingful* </div>
+
+        <div id="thingfulExplorer">
+            <div id="thingful_explorer_title"><b> Thingful Explorer </b></div>
+            <button type="button" id="explore_thingful" onclick="toggelexploreThingful()"> Explore </button> 
+            <button type="button" id="connect_explore_thingful" onclick="toggelConnect_explore_thingful()">Set Logic</button>
+        </div>
 
         <div id="thingfulPanel">
             <div id="thingful_panel_title"><b> Thingful feed </b></div>
@@ -355,7 +529,7 @@
         </div>
     </div></center>
 
-    <!-- panel to retrive thing data from thingful -->
+<!-- panel to retrive thing data from thingful -->
     <center><div id="get_thingful_data_panel">
         <div id="get_thingful_data_title"><b>Input Global Connectivity Key</b></div>
         <br>
@@ -376,7 +550,38 @@
 
     </div></center>
 
-<!-- logic connection panel for data feed 1 -->
+
+<!-- panel for thingful explorer -->
+    <div id="get_thingful_explorer_panel">
+        <br>
+        <center><div id="get_thingful_explorer_title"><b>Connect to IoT Devices Near You</b></div>
+        <br>
+        <span id="search_radius">Search Radius(m):</span></b>
+        <input type="range" id="search-rad" value="200" min="100" max="500" onchange="slider_value.value=value">
+        <output id="slider_value">200</output><br>
+        <button type = "button" id ="pre-search" data-loading-text = "exploring..." onclick="startQuery()"> EXPLORE </button></center>
+        <div id="all_devices"><center>*Make sure you have enabled geolocation tracking*</center></div>
+        <center><div id="filter" hidden>
+        <hr>
+          Available Categories to Filter By: 
+          <button id="filter_environment" onclick="toggleFilterEnvironment()" hidden >Environment</button>
+          <button id="filter_transport" onclick="toggleFilterTransport()" hidden >Transport</button>
+          <button id="filter_energy" onclick="toggleFilterEnergy()" hidden >Energy</button>
+          <button id="filter_home" onclick="toggleFilterHome()" hidden >Home</button>
+          <button id="filter_miscellaneous" onclick="toggleFilterMiscellaneous()" hidden >Miscellaneous</button>
+          <button id="filter_experiment" onclick="toggleFilterExperiment()" hidden >Experiment</button>
+          <button id="filter_health" onclick="toggleFilterHealth()" hidden >Health</button>
+        </div></center>
+
+        <div id="device_detail"></div>
+
+        <center><div id="close_panel_thingful_explorer">
+        <hr>
+        <button id="close_panel_button_thingful_explorer" onclick="toggelexploreThingful()">Close Panel</button>
+        </div></center>
+    </div>
+
+<!-- logic connection panel for thing -->
     <center><div id="connect_thingful_data_panel">
         <div id="connect_thingful_data_title"><b>Construct logic for Thing's Feed</b></div>
         <div id="instruction_logic_thingful_feed">Press buttons to switch inputs and key in number</div>
@@ -393,6 +598,25 @@
         <div id="check_logic_status_thingful_data_feed_output"></div>
         <div id="check_overall_logic_thingful_status_data_feed"><b>-Logic: Unsuccessful-</b></div>
         <div id="close_panel_thingful_data_feed">(Click 'Close panel' when completed)</div>
+    </div></center>
+
+<!-- logic connection panel for thingful explorer -->
+    <center><div id="connect_thingful_explorer_panel">
+        <div id="connect_thingful_explorer_title"><b>Construct logic for Thingful Dataset</b></div>
+        <div id="instruction_thingful_explorer_feed_3">Press buttons to switch inputs and key in number</div>
+    
+        <div id="logic_statement_thingful_explorer">
+        <span><b> if Val</b></span>  
+        <button id="greater_than_thingful_explorer" onclick="checkLogic_thingful_explorer_greater_than()"> < </button>
+        <input type="number" id="numbering_thingful_explorer"maxlength="5" size="5" placeholder= "+000" max="1023" onchange="checkLogic_thingful_explorer_number()"></input>
+        <span><b>, turn </b></span> 
+        <button id="select_output_thingful_explorer" onclick="checkLogic_thingful_explorer_output()">D9</button>
+        <button id="on_off_thingful_explorer" onclick="checkLogic_thingful_explorer_on_off()">OFF</button>
+        </div>
+        <div id="check_logic_status_thingful_explorer_number"></div>
+        <div id="check_logic_status_thingful_explorer_output"></div>
+        <div id="check_overall_logic_status_thingful_explorer"><b>-Logic: Unsuccessful-</b></div>
+        <div id="close_panel_thingful_explorer">(Click 'Close panel' when completed)</div>
     </div></center>
 
 <!--END App's Cross connectivity Control Panel -->
@@ -458,4 +682,5 @@
 </body>
 
 </html>
+
 

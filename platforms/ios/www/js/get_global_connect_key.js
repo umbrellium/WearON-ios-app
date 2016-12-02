@@ -74,7 +74,7 @@ function lastSavedGlobalConnectKey() {
 var getDataFeed_Thingful;
 
 function gettingDataFeed_Thingful() {
-    getDataFeed_Thingful = setInterval(get_Data_feed_from_thingful, 2500); // get update from thingspeak every 2.5 seconds
+    getDataFeed_Thingful = setInterval(get_Data_feed_from_thingful, 60000); // get update from thingful every 1 min
 }
 
 function get_Data_feed_from_thingful() {
@@ -83,48 +83,67 @@ function get_Data_feed_from_thingful() {
 
     var z = 0;
     var id = Thing_ID;
-    var x = "http://api.thingful.net/things/" + id;
 
-    $.get(x,
-        function(data, status) {
-            var y = data.data;
-            for (i = 0; i < (y.attributes.channels.length); i++) {
-                if (y.attributes.channels[i].id == Thing_data_set) { //if success in matching name of data set 
-                    // z = i;
-                    thingful_reading = parseInt(y.attributes.channels[i].value); // parse the var into strictly number value
-                    $("#ThingfulFeed_content").html("<b>Thing's Reading =" + thingful_reading + "</b>");
+    var url_access = "https://api.thingful.net/access?uid=" + id;
+    $.ajax({
+        url: url_access,
+        headers: {
+            "Authorization": "Bearer APIKey-Znd5MnpoYWE2d2Rj-ZjRrandwcHNxZno2ZnpkNHBlZGNiOWhq"
+        },
+        type: "GET",
+        crossDomain: true,
+        success: function(response) {
+            var data = response.data;
+            var all_channels = data[0].attributes.channels;
+            for (var i = 0; i < all_channels.length; i++) {
+                if (all_channels[i].id === Thing_data_set) {
+                    thingful_reading = parseInt(all_channels[i].value);
+                    $("#ThingfulFeed_content").html("<b>" + Thing_data_set + " =" + thingful_reading + "</b>");
                     $("#ThingfulFeed_content_status").html("Data obtained successfully");
                 }
             }
-        });
+        },
+    });
 
 }
 
 function Confirm_global_connect() {
-
     var z = 0;
     var id = Thing_ID;
-    var x = "http://api.thingful.net/things/" + id;
-    $.get(x,
-        function(data, status) {
-            var y = data.data;
-            for (i = 0; i < (y.attributes.channels.length); i++) {
-                if (y.attributes.channels[i].id == Thing_data_set) { //if success in matching name of data set 
+
+    var url_access = "https://api.thingful.net/access?uid=" + id;
+    $.ajax({
+        url: url_access,
+        headers: {
+            "Authorization": "Bearer APIKey-Znd5MnpoYWE2d2Rj-ZjRrandwcHNxZno2ZnpkNHBlZGNiOWhq"
+        },
+        type: "GET",
+        crossDomain: true,
+        success: function(response) {
+            var data = response.data;
+            var all_channels = data[0].attributes.channels;
+            for (var i = 0; i < all_channels.length; i++) {
+                if (all_channels[i].id === Thing_data_set) {
                     z = i;
+                    var thingValue = parseInt(all_channels[i].value);
                     $("#ThingfulFeed").show();
-                    $("#ThingfulFeed_content").html("<b>Thing's Reading =" + y.attributes.channels[i].value + "</b>");
+                    $("#ThingfulFeed_content").html("<b>" + Thing_data_set + " =" + thingValue + "</b>");
                     $("#ThingfulFeed_content_status").html("Data obtained successfully");
                     get_thingful_success = true;
                     toggelgetThingful();
+                    get_Data_feed_from_thingful();
+                    //start periodically getting data from thingful
                     gettingDataFeed_Thingful();
-                } else if (y.attributes.channels[z].id != Thing_data_set) {
+                } else if (all_channels[i].id != Thing_data_set) {
                     get_thingful_success = false;
                 }
             }
-        });
-
+        },
+        error: function(xhr, error) {
+            $("#ThingfulFeed_content_status").html("Error in obtaining data");
+        },
+    });
 }
-
 
 function restart_global_connect() {
 

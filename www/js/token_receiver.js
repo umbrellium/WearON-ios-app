@@ -96,7 +96,6 @@ function readTokenData() {
 
 };
 
-
 //use last save configuration key's info 
 function lastSavedToken() {
 
@@ -110,6 +109,10 @@ function lastSavedToken() {
     channelId = localStorage.channelId;
     analogSensor1 = localStorage.analogSensor1;
     analogSensor2 = localStorage.analogSensor2;
+    analogSensor3 = localStorage.analogSensor3;
+    analogSensor4 = localStorage.analogSensor4;
+    analogSensor5 = localStorage.analogSensor4;
+    analogSensor6 = localStorage.analogSensor4;
 
     $('#panel_title').html("Loading...");
 
@@ -133,6 +136,10 @@ function restart() {
     $(".channelID").empty();
     $(".Analog1").empty();
     $(".Analog2").empty();
+    $(".Analog3").empty();
+    $(".Analog4").empty();
+    $(".Analog5").empty();
+    $(".Analog6").empty();
     $(".userEmail").empty();
     $(".userLockPassword").empty();
 
@@ -179,6 +186,14 @@ function confirm() {
             $('#geoStatus').hide();
             $('.connectA4').hide();
             $('#connectA4status').hide();
+            $('.connectA3').hide();
+            $('#connectA3status').hide();
+            $('.connectA2').hide();
+            $('#connectA2status').hide();
+            $('.connectA1').hide();
+            $('#connectA1status').hide();
+            $('.connectA0').hide();
+            $('#connectA0status').hide();
             $('#tokenKeyPage').hide();
             $("#confirmationPage").hide();
             checkVisualStatus();
@@ -214,12 +229,20 @@ function reset() {
     channelId = undefined;
     analogSensor1 = undefined;
     analogSensor2 = undefined;
+    analogSensor3 = undefined;
+    analogSensor4 = undefined;
+    analogSensor5 = undefined;
+    analogSensor6 = undefined;
     $(".key").val('');
     $(".userApi").empty();
     $(".thingspeakApi").empty();
     $(".channelID").empty();
     $(".Analog1").empty();
     $(".Analog2").empty();
+    $(".Analog3").empty();
+    $(".Analog4").empty();
+    $(".Analog5").empty();
+    $(".Analog6").empty();
     $(".userEmail").empty();
     $(".userLockPassword").empty();
     $("#confirmationPage").hide();
@@ -231,6 +254,10 @@ function reset() {
     var channelIDcheck = false;
     var analogSensor1check = false;
     var analogSensor2check = false;
+    var analogSensor3check = false;
+    var analogSensor4check = false;
+    var analogSensor5check = false;
+    var analogSensor6check = false;
     showConnectedThingspeakData();
     document.getElementById("connectedThingspeakPortals").innerHTML = "Not Connected to Thingspeak";
 

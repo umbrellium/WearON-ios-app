@@ -23,36 +23,12 @@ function geolocationTracking() {
     document.getElementById("geolocationValue").innerHTML = "<b>Latitude= " + position.coords.latitude + ", Longitude= " + position.coords.longitude + "</b>";
     myLocationLat = position.coords.latitude;
     myLocationLong = position.coords.longitude;
-
-    if (connect_to_Geo == true) {
-      sendUpdateGeolocation();
-    }
-
   };
 
   function geolocationFailure(error) {
     alert("geolocation failure");
   };
 
-};
-
-function sendUpdateGeolocation() {
-
-  var geoUrl = "https://api.thingspeak.com/channels/" + channelId;
-
-  $.ajax({
-      method: "PUT",
-      url: geoUrl,
-      data: {
-        api_key: userApi,
-        latitude: myLocationLat,
-        longitude: myLocationLong
-      }
-    })
-    .done(function(data, status) {
-      geoCount++;
-      document.getElementById("geoStatus").innerHTML = "Number of readings sent to Thingspeak:" + geoCount;
-    });
 };
 
 app.toggleGeoTrack = function() {
@@ -93,6 +69,9 @@ function toggelConnectGeo() { // connect geolocation data to thingspeak
   if (connect_to_Geo) {
     if (geolocation_enabled == true) {
       connect_to_Geo = false;
+      if ((connect_to_A2 == false) && (connect_to_A3 == false) && (connect_to_A4 == false) && (connect_to_A5 == false)) {
+        clearInterval(connectThingspeak);
+      }
       localStorage.connect_to_Geo = connect_to_Geo;
       $('.connectGeo').css("background-color", "white");
       $('.connectGeo').css("color", "black");
@@ -103,6 +82,9 @@ function toggelConnectGeo() { // connect geolocation data to thingspeak
   } else {
     if (geolocation_enabled == true) {
       connect_to_Geo = true;
+      if ((connect_to_A2 == false) && (connect_to_A3 == false) && (connect_to_A4 == false) && (connect_to_A5 == false)) {
+        connectingThingspeak();
+      }
       localStorage.connect_to_Geo = connect_to_Geo;
       $('.connectGeo').css("background-color", "black");
       $('.connectGeo').css("color", "white");
