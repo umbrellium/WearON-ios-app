@@ -44,19 +44,15 @@ function readConnectKeyData_1() {
         document.getElementById("channelID_1").innerHTML = "No Channel ID found";
     }
 
-    if (keyContent_1[11] == "ON") { // check is user inputing any key in this catagory
+    if (keyContent_1[11] != "") { // check is user inputing any key in this catagory
 
         $("#channel_field_1_1").show();
-        $("#channel_field_2_1").hide();
-        document.getElementById("channel_field_1_1").innerHTML = "Channel Field 1 chosen";
-        channelField_1 = 1;
+        document.getElementById("channel_field_1_1").innerHTML = "Chosen Field: " + keyContent_1[11];
+        channelField_1 = keyContent_1[11];
         localStorage.channelField_1 = channelField_1;
     } else {
-        $("#channel_field_2_1").show();
-        $("#channel_field_1_1").hide();
-        document.getElementById("channel_field_2_1").innerHTML = "Channel Field 2 chosen";
-        channelField_1 = 2;
-        localStorage.channelField_1 = channelField_1;
+        $("#channel_field_1_1").show();
+        document.getElementById("channel_field_1_1").innerHTML = "No Field found";
     }
 
     if ((keyContent_1[3] == undefined) || (keyContent_1[7] == undefined)) {
@@ -101,7 +97,7 @@ function get_Data_feed_1_from_thingspeak() {
         function(data, status) {
             if (status == "success") {
                 data_feed_1_reading = parseInt(data); // parse the var into strictly number value
-                $("#DataFeed1_content").html("<b>Data Feed 1 Reading =" + data + "</b>");
+                $("#DataFeed1_content").html("<b>Data Feed 1 =" + data + "</b>");
                 $("#DataFeed1_content_status").html("Data obtained successfully");
             } else {
                 $("#DataFeed1_content_status").html("Error in obtaining data");
@@ -119,7 +115,7 @@ function Confirm_connect_1() {
                 get_data_1_success = true;
                 toggelgetDataFeed1();
                 $("#DataFeed1").show();
-                $("#DataFeed1_content").html("<span><b>Data Feed 1 Reading =" + data + "</b></span>");
+                $("#DataFeed1_content").html("<span><b>Data Feed 1 =" + data + "</b></span>");
                 $("#DataFeed1_content_status").html("Data obtained successfully");
                 gettingDataFeed1_Thingspeak();
             } else {

@@ -103,6 +103,8 @@ function toggelConnect_thingful() {
 
 function checkLogic_thingful_data_feed_greater_than() {
 
+	initiateLogic_thingful_data_feed();
+
 	if (greater_than_thingful_DataFeed == "1") {
 
 		greater_than_thingful_DataFeed = 2;
@@ -119,6 +121,8 @@ function checkLogic_thingful_data_feed_greater_than() {
 
 function checkLogic_thingful_data_feed_output() {
 
+	initiateLogic_thingful_data_feed();
+
 	if (D10_on_thingful_DataFeed) {
 		D10_on_thingful_DataFeed = false; // D9 selected
 		$('#select_output_thingful_data_feed').html('D9');
@@ -133,6 +137,8 @@ function checkLogic_thingful_data_feed_output() {
 }
 
 function checkLogic_thingful_data_feed_on_off() {
+
+	initiateLogic_thingful_data_feed();
 
 	if (on_thingful_DataFeed) {
 		on_thingful_DataFeed = false;
@@ -189,6 +195,8 @@ function checkLogic_thingful_data_feed_number() {
 		}
 
 	} else { // if there is number input
+
+		initiateLogic_thingful_data_feed();
 
 		check_number_thingful_DataFeed = true; //number check turns out correct
 		$('#check_logic_status_thingful_data_feed_number').hide();

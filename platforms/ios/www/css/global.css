@@ -23,11 +23,11 @@
 }
 
 #frontCoverTitle, #frontCoverDescription{
-	font-size: 40px;
+  font-size: 40px;
 }
 
 #frontCoverDescription{
-	font-size: 15px;
+  font-size: 15px;
 }
 
 #panel_image{
@@ -128,97 +128,105 @@
 }
 
 #placeholderBegin{
-	opacity:0.2;
+  opacity:0.2;
 }
 
 #bottom{
     vertical-align: bottom
 }
 
-.deviceContainer:onclick{
-  color:white;
-  background-color: black;
-}
-
-#connectA5status, #connectA4status, #geoStatus, #storedData, #panel_title, #footnote, #note,#DataFeed1_content_status, 
-#ThingfulFeed_content_status {
-	font-size: 12px;
-	opacity:0.5;
+#connectA0status, #connectA1status, #connectA2status, #connectA3status, #connectA5status, #connectA4status, #geoStatus, #storedData, #panel_title, #footnote, #note,
+#DataFeed1_content_status, #DataFeed2_content_status, #DataFeed3_content_status,#ThingfulFeed_content_status, #ThingfulExplorerFeed_content_status {
+  font-size: 12px;
+  opacity:0.5;
 }
 
 #device_check_bluetooth, #device_check_network, #device_check_gps, #user_device_connection, #device_check_panel_D9_D10{
-	font-size: 10px;
-	opacity:0.5;
-	color:red;	
+  font-size: 10px;
+  opacity:0.5;
+  color:red;  
 }
 
-#A4Bar, #A5Bar, #GEOreading, #DataFeed1, #ThingfulFeed{
+#A0Bar, #A1Bar, #A2Bar, #A3Bar, #A4Bar, #A5Bar, #GEOreading, #DataFeed1, #DataFeed2, #DataFeed3, #ThingfulFeed, #ThingfulExplorerFeed{
   font-size: 30px;
   margin:5vw;
 }
 
-#connectA5status, #connectA4status, #geoStatus,#DataFeed1_content_status, #ThingfulFeed_content_status{
-	margin-top: 5px;
+#connectA5status, #connectA4status, #connectA3status,#connectA2status, #connectA1status,#connectA0status, #geoStatus,
+#DataFeed1_content_status,#DataFeed2_content_status, #DataFeed3_content_status,#ThingfulFeed_content_status, #ThingfulExplorerFeed_content_status{
+  margin-top: 5px;
 }
 
-#connectA4error, #connectA5error{
-	font-size: 12px;
-	opacity:0.5;
-	color: red;
+#connectA0error,#connectA1error,#connectA2error,#connectA3error,#connectA4error, #connectA5error{
+  font-size: 12px;
+  opacity:0.5;
+  color: red;
 }
 
 #connectedData{
-	font-size: 5px;
-	opacity:0.5;	
+  font-size: 5px;
+  opacity:0.5;  
 }
 
 #appSensorInfo{
-	opacity:0.5;
+  opacity:0.5;
 }
 
-#valueA5, #valueA4, #geolocationValue{
-	margin-top: 10px;
-	margin-bottom: 10px;
+#valueA0,#valueA1,#valueA2,#valueA3, #valueA5, #valueA4, #geolocationValue{
+  margin-top: 10px;
+  margin-bottom: 10px;
 
 }
 
 #AppControl, #AppConnectivityControl, #AppGlobalConnectivityControl { 
-	font-size: 10px;
+  font-size: 10px;
 }
 
-.enableA5, .connectA5, .enableA4, .connectA4, .enableGeoTrack, 
+.enableA0, .connectA0,.enableA1, .connectA1,.enableA2, .connectA2,.enableA3, 
+.connectA3, .enableA5, .connectA5, .enableA4, .connectA4, .enableGeoTrack, 
 .connectGeo, .enableD9, .connectD9, .enableD10, .connectD10 ,
-#saveState, #useState,  #get_data_set_1, #connect_data_set_1, 
-#saveState_data_feed_1, #useState_data_feed_1, #get_thingful, #connect_thingful,
-#saveState_thingful, #useState_thingful{
-	font-size: 15px;
-	background-color: white;
-	color:black;
-	border: 1px;
-	border-style: none;
-	border-width: 0.8px;
-	margin:4px;
+#saveState, #useState,  
+#get_data_set_1, #connect_data_set_1, 
+#get_data_set_2, #connect_data_set_2,
+#get_data_set_3, #connect_data_set_3,
+#saveState_data_feed_3, #useState_data_feed_3,
+#saveState_data_feed_2, #useState_data_feed_2,
+#saveState_data_feed_1, #useState_data_feed_1, 
+#get_thingful, #connect_thingful,
+#saveState_thingful, #useState_thingful,
+#explore_thingful, #connect_explore_thingful{
+  font-size: 15px;
+  background-color: white;
+  color:black;
+  border: 1px;
+  border-style: none;
+  border-width: 0.8px;
+  margin:4px;
 }
 
-.enableA4, .enableA5, .enableD9, .connectD9, .enableD10, .connectD10 ,  #get_data_set_1, #connect_data_set_1,
-#get_thingful, #connect_thingful {
-	padding-left: 18px;
-	padding-right: 18px;
+.enableA0,.enableA1,.enableA2,.enableA3, .enableA4, .enableA5, 
+.enableD9, .connectD9, .enableD10, .connectD10 , 
+#get_data_set_1, #connect_data_set_1,
+#get_data_set_2, #connect_data_set_2,
+#get_data_set_3, #connect_data_set_3,
+#get_thingful, #connect_thingful, #explore_thingful, #connect_explore_thingful {
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
-#saveState, #saveState_data_feed_1, #saveState_thingful {
-	padding-left: 30px;
-	padding-right: 30px;
+#saveState, #saveState_data_feed_1, #saveState_data_feed_2, #saveState_data_feed_3, #saveState_thingful {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 #description{
-	font-size: 14px;
-	opacity:0.5;
+  font-size: 14px;
+  opacity:0.5;
   margin-bottom: 10vh;
 }
 
 #instruction_list, #device_setting{ 
-	opacity:0.5;
+  opacity:0.5;
 }
 
 #instruction{
@@ -227,9 +235,9 @@
 }
 
 .key{
-	width: 20vw;
+  width: 20vw;
   height: 10vh;
-	font-size: 40px;
+  font-size: 40px;
 }
 
 .tokenPageTitle{
@@ -237,8 +245,9 @@
 }
 
 
-#A4ControlPanel, #A5ControlPanel, #GEOControlPanel, #SaveControlPanel, #D9ControlPanel, #D10ControlPanel
-, #DateFeed1Panel, #SaveControlPanel_data_feed_1, #thingfulPanel, #SaveControlPanel_thingful {
+#A0ControlPanel, #A0ControlPanel, #A1ControlPanel, #A1ControlPanel, #A2ControlPanel, #A2ControlPanel,#A3ControlPanel,#A4ControlPanel, #A5ControlPanel, #GEOControlPanel, #SaveControlPanel, #D9ControlPanel, #D10ControlPanel
+,#DateFeed1Panel, #DateFeed2Panel, #DateFeed3Panel, #SaveControlPanel_data_feed_1, #SaveControlPanel_data_feed_2, #SaveControlPanel_data_feed_3, 
+#thingfulPanel, #SaveControlPanel_thingful, #thingfulExplorer {
     display: inline-block;
     width:100px;
     background-color: lightgrey;
@@ -247,61 +256,68 @@
 
 }
 
-#A4title, #A5title, #Geotitle, #saveStatetitle,#D9title, #D10title, #DataFeed1title , #saveStatetitle_data_feed_1, 
-#thingful_panel_title, #saveStatetitle_thingful {
-	margin-top: 4px;
-	color: black;
+#A0title,#A1title,#A2title,#A3title, #A4title, #A5title, #Geotitle, 
+#saveStatetitle,#D9title, #D10title, 
+#DataFeed1title, #DataFeed2title, #DataFeed3title , 
+#saveStatetitle_data_feed_1, 
+#thingful_panel_title, #saveStatetitle_thingful,
+#thingful_explorer_title {
+  margin-top: 4px;
+  color: black;
 }
 
 #userConfigKeyContent{
-	font-size: 15px;
-	color:grey;
+  font-size: 15px;
+  color:grey;
 }
 
 #show_control_panel, #show_connectivity_panel, #show_global_connectivity_panel{
-	position:relative;
-	font-weight:bold;
-	width:30px;
-	height:30px;
-	border-radius:50%;
-	font-size:30px;
-	color:black;
-	line-height:15px;
-	text-align:center;
-	background:lightgrey;
-	border-style: none;
-	padding:3px;
-	outline:none;
+  position:relative;
+  font-weight:bold;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  font-size:30px;
+  color:black;
+  line-height:10px;
+  text-align:center;
+  background:lightgrey;
+  border-style: none;
+  padding:3px;
+  outline:none;
 }
 
 
 #app_control_title, #app_connectivity_title, #app_global_connectivity_title{
-	position: relative;
-	bottom:2px;
-	font-size: 18px;
-	margin-right: 4px;
+  position: relative;
+  bottom:2px;
+  font-size: 18px;
+  margin-right: 4px;
 }
 
 button#saveState:active, button#useState:active, button#D9_to_A4:active,
 button#D9_to_A5:active, button#confirm_connection_D9:active, button#construct_logic_D9:active,
 button#back_D9:active, button#saveState_data_feed_1:active, button#useState_data_feed_1:active,
 button#saveState_thingful:active, button#useState_thingful:active { 
-	background-color:black;
-	color:white;
+  background-color:black;
+  color:white;
 }
 
 #app_restarted_status{
-	font-size: 15px;
-	color:red;
-	margin:10px;
-	bottom: 45%;
+  font-size: 15px;
+  color:red;
+  margin:10px;
+  bottom: 45%;
   left: 0;
   position: fixed;
   right: 0;
 }
 
-#connect_D9_panel, #connect_D10_panel, #get_data_set_1_panel, #connect_data_feed_1_panel,
-#get_thingful_data_panel, #connect_thingful_data_panel {
+#connect_D9_panel, #connect_D10_panel, 
+#get_data_set_1_panel, #connect_data_feed_1_panel, 
+#get_data_set_2_panel, #connect_data_feed_2_panel,
+#get_data_set_3_panel, #connect_data_feed_3_panel,
+#get_thingful_data_panel, #connect_thingful_data_panel, #connect_thingful_explorer_panel {
     background-color: #ffa700;
     padding-top: 10px;
     font-size: 12px;
@@ -313,18 +329,46 @@ button#saveState_thingful:active, button#useState_thingful:active {
     opacity: 0.98;
 }
 
-#logic_statement_D9, #logic_statement_D10, #logic_statement_data_feed_1, #logic_statement_thingful_feed{
+#get_thingful_explorer_panel {
+    background-color: #2d2d2d;
+    color:white;
+    padding-top: 10px;
+    font-size: 12px;
+    color: black;
+    bottom: 0%;
+    left: 0;
+    right: 0;   
+    opacity: 0.98;
+    min-width:100vw;
+    min-height:100vh;
+    overflow:visible;
+    z-index: +100;
+    margin-top: -300px;
+    margin-left: -8px;
+}
+
+#logic_statement_D9, #logic_statement_D10, #logic_statement_data_feed_1, 
+#logic_statement_data_feed_2,#logic_statement_data_feed_3, #logic_statement_thingful_feed,
+#logic_statement_thingful_explorer{
     font-size: 50px;
     margin-bottom: 10px;
 }
 
-#connect_D9_title, #connect_D10_title, #get_data_set_1_title, #connect_data_feed_1_title,
-#get_thingful_data_title, #connect_thingful_data_title{
+#connect_D9_title, #connect_D10_title, 
+#get_data_set_1_title, #connect_data_feed_1_title, 
+#get_data_set_2_title, #connect_data_feed_2_title,
+#get_data_set_3_title, #connect_data_feed_3_title,
+#get_thingful_data_title, #connect_thingful_data_title,
+#get_thingful_explorer_title, #connect_thingful_explorer_title{
     font-size: 20px;
 }
 
-#numbering_D9, #numbering_D10, #numbering_data_feed_1, 
-#numbering_thingful_data_feed{
+#get_thingful_explorer_title{
+  color:white;
+}
+
+#numbering_D9, #numbering_D10, #numbering_data_feed_1, #numbering_data_feed_2,
+#numbering_data_feed_3 ,#numbering_thingful_data_feed, #numbering_thingful_explorer{
     font-size: 40px;
     width:100px;
     height:50px;
@@ -334,7 +378,10 @@ button#saveState_thingful:active, button#useState_thingful:active {
 #greater_than_D9,#select_sensor_D9, #on_off_D9,
 #greater_than_D10,#select_sensor_D10, #on_off_D10,
 #greater_than_data_feed_1, #select_output_data_feed_1, #on_off_data_feed_1,
-#greater_than_thingful_data_feed, #select_output_thingful_data_feed, #on_off_thingful_data_feed{
+#greater_than_data_feed_2, #select_output_data_feed_2, #on_off_data_feed_2,
+#greater_than_data_feed_3, #select_output_data_feed_3, #on_off_data_feed_3,
+#greater_than_thingful_data_feed, #select_output_thingful_data_feed, #on_off_thingful_data_feed,
+#greater_than_thingful_explorer, #select_output_thingful_explorer, #on_off_thingful_explorer{
     height:50px;
     vertical-align: middle;
     font-size: 40px;
@@ -344,59 +391,166 @@ button#saveState_thingful:active, button#useState_thingful:active {
 #check_logic_status_D9_sensor, #check_logic_status_D9_number, 
 #check_logic_status_D10_sensor, #check_logic_status_D10_number,
 #check_logic_status_data_feed_1_output, #check_logic_status_data_feed_1_number,
-#check_logic_status_thingful_data_feed_number, #check_logic_status_thingful_data_feed_output{
-	font-size:15px;
-	margin-bottom: 2px;
+#check_logic_status_data_feed_2_output, #check_logic_status_data_feed_2_number,
+#check_logic_status_data_feed_3_output, #check_logic_status_data_feed_3_number,
+#check_logic_status_thingful_data_feed_number, #check_logic_status_thingful_data_feed_output,
+#check_logic_status_thingful_explorer_number, #check_logic_status_thingful_explorer_output
+{
+  font-size:15px;
+  margin-bottom: 2px;
 }
 
-#check_overall_logic_status_D9, #check_overall_logic_status_D10, #check_overall_logic_status_data_feed_1,
+#check_overall_logic_status_D9, #check_overall_logic_status_D10, #check_overall_logic_status_data_feed_1, 
+#check_overall_logic_status_data_feed_2, #check_overall_logic_status_data_feed_3,
 #check_overall_logic_thingful_status_data_feed{
-	font-size:20px;	
-	color:red;
-	margin-top:10px;
+  font-size:20px; 
+  color:red;
+  margin-top:10px;
 }
 
 #close_panel_D9, #close_panel_D10{
-	font-size: 12px;
-	margin-bottom: 10px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
-#instruction_logic_D9, #instruction_logic_D10, #instruction_logic_data_feed_1,
-#instruction_logic_thingful_feed{
-	font-size:12px;
-	margin-bottom: 10px;
+#instruction_logic_D9, #instruction_logic_D10, #instruction_logic_data_feed_1,#instruction_logic_data_feed_2,
+#instruction_logic_data_feed_3, #instruction_logic_thingful_feed, #instruction_thingful_explorer_feed_3{
+  font-size:12px;
+  margin-bottom: 10px;
 }
 
-#getData_connectivity_key_1, #getData_global_connectivity_key{
-	padding-left: 38px;
-	padding-right: 38px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	margin-top:10px;
-	margin-bottom: 10px;
+#getData_connectivity_key_3, #getData_connectivity_key_2, #getData_connectivity_key_1, #getData_global_connectivity_key{
+  padding-left: 38px;
+  padding-right: 38px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top:10px;
+  margin-bottom: 10px;
 }
 
-#userConnectKeyContent_1, #userGlobalConnectKeyContent{
-	font-size: 12px;
+#userConnectKeyContent_3, #userConnectKeyContent_2, #userConnectKeyContent_1, #userGlobalConnectKeyContent{
+  font-size: 12px;
 }
 
-#confirmation_connect_1, #confirmation_global_connect{
-	margin-top:10px;
-	margin-bottom: 15px;
+#confirmation_connect_3, #confirmation_connect_2, #confirmation_connect_1, #confirmation_global_connect{
+  margin-top:10px;
+  margin-bottom: 15px;
 }
 
-.useStoredConnectKey_1, .useStoredGlobalConnectKey{
-	background-color: #AAAAAA;
-	margin-bottom: 15px;
+.useStoredConnectKey_3, .uscoeStoredConnectKey_2, .useStoredConnectKey_1, .useStoredGlobalConnectKey{
+  background-color: #AAAAAA;
+  margin-bottom: 15px;
 }
 
-#status_connect_key_1{
-	font-size:10px;
-	color:red;
+#status_connect_key_1, #status_connect_key_2, #status_connect_key_3{
+  font-size:10px;
+  color:red;
 }
 
 .sub_instruction{
   font-size: 14px;
   color:#313131;
   padding:2vw;
+}
+
+#all_devices{
+  width:100vw;
+  max-height:250px;
+  overflow-y: scroll;
+  color:white;
+}
+
+button.deviceDataset:active{
+  color:white;
+  background-color: black;
+}
+
+button.environment:active, button.transport:active, button.energy:active, button.home:active, button.miscellaneous:active,
+button.experiment:active, button.health:active{
+  color:white;
+}
+
+#filter{
+  font-size: 20px;
+  color:white;
+}
+
+#close_panel_thingful_explorer button{
+  font-size: 20px;
+  padding-left:5vw;
+  padding-right: 5vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  margin:1px;
+  background-color: red;
+  color:white;
+  box-shadow: none;
+  border:none;
+}
+
+#device_detail{
+  font-size: 20px;
+  color:white;
+}
+
+#filter_environment, #filter_transport, #filter_energy, #filter_home, #filter_miscellaneous, #filter_experiment, #filter_health{
+  font-size:15px; 
+  padding:5px; 
+  margin:1px; 
+  outline:none; 
+  border-style: none;
+}
+
+#filter_environment{
+  background-color:#0098D4;
+}
+
+#filter_transport{
+  background-color:#AD4FD9;
+}
+
+#filter_energy{
+  background-color:#FFDC36;
+}
+
+#filter_home{
+  background-color:#EE7C0E;
+}
+
+#filter_miscellaneous{
+  background-color:#A0A5A9;
+}
+
+#filter_experiment{
+  background-color:#EA6DEC;
+}
+
+#filter_health{
+  background-color:#E4271E;
+}
+
+#pre-search{
+  margin-top:10px;
+  margin-bottom: 5px; 
+  padding-left:15px; 
+  padding-right:20px; 
+  font-size:20px;
+}
+
+#slider_value{
+  font-size:20px; 
+  color:white;
+}
+
+#search_radius{
+  font-size:15px; 
+  color:white;
+}
+
+#search-rad{
+  width:180px;
+}
+
+#close_panel_button_thingful_explorer{
+  margin-bottom: 10px;
 }
