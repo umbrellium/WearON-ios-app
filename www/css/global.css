@@ -419,14 +419,23 @@ button#saveState_thingful:active, button#useState_thingful:active {
   margin-bottom: 10px;
 }
 
-#getData_connectivity_key_3, #getData_connectivity_key_2, #getData_connectivity_key_1, #getData_global_connectivity_key{
+#getData_connectivity_key_3, #getData_connectivity_key_2, #getData_connectivity_key_1, #getData_global_connectivity_key,
+.Confirm_global_connect, .restart_global_connect, .Confirm_connect_3, .restart_connect_3, .Confirm_connect_2, .restart_connect_2
+.Confirm_connect_1, .restart_connect_1{
   padding-left: 38px;
   padding-right: 38px;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-top:10px;
   margin-bottom: 10px;
+  font-size: 15px;
+  margin:1vw;
+  -webkit-appearance:none; 
+  border-radius:0;
+  background-color: lightgrey;
 }
+
+
 
 #userConnectKeyContent_3, #userConnectKeyContent_2, #userConnectKeyContent_1, #userGlobalConnectKeyContent{
   font-size: 12px;
